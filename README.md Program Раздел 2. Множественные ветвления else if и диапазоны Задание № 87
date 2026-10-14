@@ -1,0 +1,44 @@
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    namespace Program87
+    {
+    internal class Program
+    {
+        static void Main()
+        {
+            Console.Write("Введите пинг (мс): ");
+
+            if (double.TryParse(Console.ReadLine(), out double ping) && ping >= 0)
+            {
+                string verdict;
+
+                if (ping < 20)
+                {
+                    verdict = "идеальный";
+                }
+                else if (ping <= 60)
+                {
+                    verdict = "хороший";
+                }
+                else if (ping <= 120)
+                {
+                    verdict = "посредственный";
+                }
+                else
+                {
+                    verdict = "плохой";
+                }
+
+                Console.WriteLine($"Вердикт: {verdict} (пинг = {ping:F0} мс)");
+            }
+            else
+            {
+                Console.WriteLine("Ошибка: укажите неотрицательное значение.");
+            }
+        }
+    }
+    }
